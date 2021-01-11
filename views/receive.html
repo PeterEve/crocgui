@@ -11,7 +11,7 @@
 		</tr>
 		<tr ng-repeat="download in downloads">
 			<td>{{download.fileName}}</td>
-			<td>{{download.code}}</td>
+			<td class="selectable" ng-click="clipboardSet(download.code)">{{download.code}}</td>
 			<td>{{download.status.state}}</td>
 			<td>{{download.status.download.percent}}</td>
 			<td>{{download.status.download.bitrate}}</td>
@@ -32,8 +32,8 @@
 			<input type="text" placeholder="File code" ng-model="newDownloadOptions.code">
 		</div>
 		<div class="modalrow">
-			<button ng-click="addDownload(newDownloadOptions)">Start</button>
 			<button ng-click="newDownloadVisible = false">Cancel</button>
+			<button ng-click="addDownload(newDownloadOptions); saveConfig()">Start</button>
 		</div>
 	</div>
 </div>

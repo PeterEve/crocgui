@@ -41,6 +41,7 @@ button, .fileselect {
 	font-size: 15px;
 	text-decoration: none;
 	cursor: pointer;
+	user-select: none;
 }
 
 button:focus {
@@ -89,6 +90,12 @@ table {
 
 tr, td {
 	text-align: left;
+	user-select: none;
+}
+
+.selectable {
+	user-select: text;
+	cursor: pointer;
 }
 
 td>button {
@@ -147,7 +154,8 @@ td>button {
 	margin-left: 5px;
 	margin-right: 5px;
     padding-bottom: 5px;
-    border-bottom: 2px var(--highlight) solid;
+	border-bottom: 2px var(--highlight) solid;
+	user-select: none;
 }
 
 

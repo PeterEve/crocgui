@@ -27,6 +27,22 @@ CrocGui.directive('settings', ['$rootScope', '$timeout', function($rootScope, $t
 				$timeout(() => { $scope.$apply()})
 			}
 
+			$scope.clipboardSet = (text) => {
+				$rootScope.nw.Clipboard.get().set(text, 'text')
+			}
+
+			$scope.showDebugLog = () => {
+				if (FS.existsSync("./package.nw/")) {
+					$rootScope.nw.Shell.showItemInFolder(process.cwd() + "\\package.nw\\debug.log")
+				} else {
+					$rootScope.nw.Shell.showItemInFolder(process.cwd() + "\\debug.log")
+				}
+			}
+
+			$scope.showDownloadFolder = () => {
+				CP.execSync('start "" "' + $rootScope.settings.downloadFolder)
+			}
+
 			$scope.loadConfig = () => {
 				if (FS.existsSync("./config.json")) {
 					$scope.settings = require("./config.json").settings
@@ -52,14 +68,6 @@ CrocGui.directive('settings', ['$rootScope', '$timeout', function($rootScope, $t
 				FS.writeFileSync("./config.json", JSON.stringify(existing), {encoding: 'utf-8'})
 				$rootScope.settings = $scope.settings
 				$rootScope.$broadcast("settings")
-			}
-
-			$scope.showDebugLog = () => {
-				if (FS.existsSync("./package.nw/")) {
-					CP.execSync('start "" "' + process.cwd() + "\\package.nw")
-				} else {
-					CP.execSync('start "" "' + process.cwd())
-				}
 			}
 
 			$scope.loadConfig()

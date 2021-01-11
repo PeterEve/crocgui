@@ -16,11 +16,12 @@ CrocGui.controller('Main', ['$document', '$rootScope', '$scope', '$timeout',
 				new Winston.transports.File({ filename: 'debug.log'})
 			]
 		})
+		$rootScope.nw = nw
 
 		// Admin
 		let Win = nw.Window.get()
+
 		Win.menu = null
-		//Win.showDevTools()
 
 		// Tab management
 		$scope.tabs = {

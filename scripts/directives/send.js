@@ -56,7 +56,6 @@ CrocGui.directive('send', ['$rootScope', '$timeout', function($rootScope, $timeo
 	
 					$scope.uploads.push(upload)
 					$rootScope.Logger.info("Added new upload " + newOptions.filePath)
-					$scope.saveConfig()
 				}
 			}
 
@@ -79,13 +78,18 @@ CrocGui.directive('send', ['$rootScope', '$timeout', function($rootScope, $timeo
 				$timeout(() => { $scope.$apply() })
 			}
 
+			let Clipboard = $rootScope.nw.Clipboard.get()
+			$scope.clipboardSet = (text) => {
+				Clipboard.set(text, 'text')
+			}
+
 			$scope.loadConfig = () => {
 				let tmpuploads = []
 				if (FS.existsSync("./config.json")) {
 					tmpuploads = require("./config.json").uploads
 				}
 				for (var i=0;i<tmpuploads.length;i++) {
-					$scope.addUpload(tmpuploads[i])
+					$scope.addUpload("resume", tmpuploads[i])
 				}
 			}
 

@@ -11,7 +11,7 @@
 		</tr>
 		<tr ng-repeat="upload in uploads">
 			<td>{{upload.fileName}}</td>
-			<td>{{upload.code}}</td>
+			<td class="selectable" ng-click="clipboardSet(upload.code)">{{upload.code}}</td>
 			<td>{{upload.status.state}}</td>
 			<td>{{upload.status.upload.percent}}</td>
 			<td>{{upload.status.upload.bitrate}}</td>
@@ -43,8 +43,8 @@
 			</div>
 		</div>
 		<div class="modalrow">
-			<button ng-click="addUpload('file')">Start</button>
 			<button ng-click="newFileVisible = false">Cancel</button>
+			<button ng-click="addUpload('file'); saveConfig()">Start</button>
 		</div>
 	</div>
 </div>
@@ -66,8 +66,8 @@
 			</div>
 		</div>
 		<div class="modalrow">
-			<button ng-click="addUpload('folder')">Start</button>
 			<button ng-click="newFolderVisible = false">Cancel</button>
+			<button ng-click="addUpload('folder'); saveConfig()">Start</button>
 		</div>
 	</div>
 </div>

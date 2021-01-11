@@ -27,7 +27,6 @@ CrocGui.directive('receive', ['$rootScope', '$timeout', function($rootScope, $ti
 				$scope.downloads.push(download)
 				$scope.newDownloadVisible = false
 				$rootScope.Logger.info("Added new download " + options.code)
-				$scope.saveConfig()
 			}
 
 			$scope.removeDownload = (download) => {
@@ -55,6 +54,11 @@ CrocGui.directive('receive', ['$rootScope', '$timeout', function($rootScope, $ti
 					$scope.saveConfig()
 				}
 			})
+
+			let Clipboard = $rootScope.nw.Clipboard.get()
+			$scope.clipboardSet = (text) => {
+				Clipboard.set(text, 'text')
+			}
 
 			$scope.loadConfig = () => {
 				let tmpdownloads = []
