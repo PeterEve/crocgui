@@ -10,6 +10,7 @@ CrocGui.directive('settings', ['$rootScope', '$timeout', function($rootScope, $t
 				switch(option) {
 					case "documents":
 						$scope.settings.downloadFolder = process.env.USERPROFILE + '\\Documents'
+						break
 					case "downloads":
 						$scope.settings.downloadFolder = process.env.USERPROFILE + '\\Downloads'
 						break
