@@ -113,7 +113,9 @@ class Downloader extends EventEmitter {
 				break
 			case "Done":
 				// Move existing files
-				FS.renameSync(this.downloadFolder + "\\" + this.filename, newfolder + "\\" + this.fileName)
+				try {
+					FS.renameSync(this.downloadFolder + "\\" + this.filename, newfolder + "\\" + this.fileName)
+				} catch(e) {}
 				this.downloadFolder = newfolder
 				break
 		}
