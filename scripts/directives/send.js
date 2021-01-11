@@ -11,13 +11,17 @@ CrocGui.directive('send', ['$rootScope', '$timeout', function($rootScope, $timeo
 			$scope.newFolderVisible = false
 			$scope.newFolderReserve = false
 
+			$scope.newFileCode = ""
+
 			$scope.showNewFile = () => {
 				document.getElementById("newfile").value = ""
+				$scope.newFileCode = ""
 				$scope.newFileVisible = true
 			}
 
 			$scope.showNewFolder = () => {
 				document.getElementById("newfolder").value = ""
+				$scope.newFileCode = ""
 				$scope.newFolderVisible = true
 			}
 
@@ -31,12 +35,16 @@ CrocGui.directive('send', ['$rootScope', '$timeout', function($rootScope, $timeo
 				if (mode == "file") {
 					newOptions.filePath = $scope.newFilePath
 					newOptions.reserve = document.getElementById("newfilereserve").checked
+					newOptions.code = $scope.newFileCode
+
 					$scope.newFileVisible = false
 					$scope.newFilePath = undefined
 					document.getElementById("newfilereserve").checked = false
 				} else if (mode == "folder") {
 					newOptions.filePath = $scope.newFolderPath
 					newOptions.reserve = document.getElementById("newfolderreserve").checked
+					newOptions.code = $scope.newFileCode
+
 					$scope.newFolderVisible = false
 					$scope.newFolderPath = undefined
 					document.getElementById("newfolderreserve").checked = false
