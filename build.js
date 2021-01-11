@@ -20,8 +20,8 @@ toCopy.forEach((filename) => {
 })
 
 fse.copySync("./NW/", "./build")
-try {fse.copySync("./build/NW.exe", "./build/crocgui.exe", { overwrite: false }) } catch(e) {}
-try {fs.unlinkSync("./build/NW.exe")} catch(e) {}
+try {fse.copySync("./build/nw.exe", "./build/crocgui.exe", { overwrite: false }) } catch(e) {}
+try {fs.unlinkSync("./build/nw.exe")} catch(e) {}
 
 zip("./build", "./crocgui " + version + ".zip", (err) => {
 	try { fs.rmdirSync("./build", {recursive: true})} catch(e) {}
