@@ -17,3 +17,14 @@ If you encounter errors, please send me the debug.log file found in install fold
 
 	> npm run build
 5. Extract crocgui.zip wherever you intend to use the program
+
+## Look
+
+### Send
+![Send page](https://raw.githubusercontent.com/PeterEve/crocgui/main/_repoImages/Send.png)
+
+### Receive
+![Send page](https://raw.githubusercontent.com/PeterEve/crocgui/main/_repoImages/Receive.png)
+
+### Settings
+![Send page](https://raw.githubusercontent.com/PeterEve/crocgui/main/_repoImages/Settings.png)
