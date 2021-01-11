@@ -1,0 +1,56 @@
+<div class="settinglist">
+	<div class="settingsegment">
+		<span class="settingheader">Download Folder</span>
+		<div class="settingrow">
+			<span>Current</span>
+			<div class="settingcontent">
+				<input type="text" ng-model="settings.downloadFolder" disabled></span>
+			</div>
+		</div>
+		<div class="settingrow">
+			<span>Custom</span>
+			<div class="settingcontent">
+				<label class="fileselect">
+					Browse...
+					<input type="file" id="downloadpath" ng-model="downloadpath" onchange="angular.element(this).scope().setDownloadLocation()" nwdirectory>
+				</label>
+			</div>
+		</div>
+		<div class="settingrow">
+			<span>Defaults</span>
+			<div class="settingcontent">
+				<button ng-click="setDownloadLocation('documents')">Documents</button>
+				<button ng-click="setDownloadLocation('downloads')">Downloads</button>
+				<button ng-click="setDownloadLocation('pictures')">Pictures</button>
+			</div>
+		</div>
+	</div>
+	<div class="settingsegment">
+		<span class="settingheader">Version</span>
+		<div class="settingrow">
+			<span>{{version}}</span>
+			<div class="settingcontent">
+				<button ng-click="changelogVisible = true">Show Changelog</button>
+			</div>
+		</div>
+	</div>
+	<div class="settingsegment">
+		<span class="settingheader">Debug</span>
+		<div class="settingrow">
+			<span></span>
+			<div class="settingcontent">
+				<button ng-click="showDebugLog()">Show Debug log</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" ng-show="changelogVisible">
+	<div class="modalcontents">
+		<span class="textheader">Changelog</span>
+		<changelog></changelog>
+		<div class="modalfooter">
+			<button ng-click="changelogVisible = false">Close</button>
+		</div>
+	</div>
+</div>

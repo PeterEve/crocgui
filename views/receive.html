@@ -1,0 +1,39 @@
+<div class="list">
+	<table>
+		<tr>
+			<td>File</td>
+			<td>Code</td>
+			<td>Status</td>
+			<td>Percentage</td>
+			<td>Bitrate</td>
+			<td>Total Size</td>
+			<td>Remove</td>
+		</tr>
+		<tr ng-repeat="download in downloads">
+			<td>{{download.fileName}}</td>
+			<td>{{download.code}}</td>
+			<td>{{download.status.state}}</td>
+			<td>{{download.status.download.percent}}</td>
+			<td>{{download.status.download.bitrate}}</td>
+			<td>{{download.status.download.size}}</td>
+			<td><button ng-click="removeDownload(download)">X</button></td>
+		</tr>
+	</table>
+</div>
+
+<div class="footer">
+	<button ng-click="showNewDownload()">New Download</button>
+	<button ng-click="showDownloadLocation()">Show Download Folder</button>
+</div>
+
+<div class="modal" ng-show="newDownloadVisible">
+	<div class="modalcontents">
+		<div class="modalrow">
+			<input type="text" placeholder="File code" ng-model="newDownloadOptions.code">
+		</div>
+		<div class="modalrow">
+			<button ng-click="addDownload(newDownloadOptions)">Start</button>
+			<button ng-click="newDownloadVisible = false">Cancel</button>
+		</div>
+	</div>
+</div>

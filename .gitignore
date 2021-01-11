@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+build
+NW
+build.zip
+*.code-workspace
+config.json
+debug.log
+*.zip

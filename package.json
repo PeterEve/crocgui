@@ -1,0 +1,21 @@
+{
+	"name": "crocgui",
+	"version": "0.2.0",
+	"scripts": {
+		"start": "nw ./",
+		"build": "node build.js"
+	},
+	"author": "Peter Eve",
+	"license": "ISC",
+	"dependencies": {
+		"angular": "^1.8.2",
+		"fs-extra": "^9.0.1",
+		"winston": "^3.3.3",
+		"zip-folder": "^1.0.0"
+	},
+	"main": "index.html",
+	"window": {
+		"id": "crocgui"
+	},
+	"single-instance": true
+}

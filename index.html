@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="CrocGui" ng-controller="Main">
+	<head>
+		<title>Crocgui</title>
+		<script src="node_modules/angular/angular.js"></script>
+		<script src="scripts/app.js"></script>
+		<script src="scripts/directives/receive.js"></script>
+		<script src="scripts/directives/send.js"></script>
+		<script src="scripts/directives/settings.js"></script>
+		<link rel="stylesheet" href="styles/main.css">
+	</head>
+	<body>
+		<div class="tabButtons">
+			<button class="tabButton" ng-click="changeTab('send')"		ng-class="{selected: tabs.send}">Send</button>
+			<button class="tabButton" ng-click="changeTab('receive')"	ng-class="{selected: tabs.receive}">Receive</button>
+			<button class="tabButton" ng-click="changeTab('settings')"	ng-class="{selected: tabs.settings}">Settings</button>
+		</div>
+		<div class="tabs">
+			<send ng-show="tabs.send"></send>
+			<receive ng-show="tabs.receive"></receive>
+			<settings ng-show="tabs.settings"></settings>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<div class="list">
+	<table>
+		<tr>
+			<td>File</td>
+			<td>Code</td>
+			<td>Status</td>
+			<td>Percentage</td>
+			<td>Bitrate</td>
+			<td>Total Size</td>
+			<td>Remove</td>
+		</tr>
+		<tr ng-repeat="upload in uploads">
+			<td>{{upload.fileName}}</td>
+			<td>{{upload.code}}</td>
+			<td>{{upload.status.state}}</td>
+			<td>{{upload.status.upload.percent}}</td>
+			<td>{{upload.status.upload.bitrate}}</td>
+			<td>{{upload.status.upload.size}}</td>
+			<td><button ng-click="removeUpload(upload)">X</button></td>
+		</tr>
+	</table>
+</div>
+
+<div class="footer">
+	<button ng-click="showNewFile()">Upload File</button>
+	<button ng-click="showNewFolder()">Upload Folder</button>
+</div>
+
+<div class="modal" ng-show="newFileVisible">
+	<div class="modalcontents">
+		<div class="modalrow">
+			<input type="text" placeholder="None" ng-model="newFilePath" disabled>
+			<label class="fileselect">
+				Browse...
+				<input type="file" id="newfile" ng-model="downloadpath" onchange="angular.element(this).scope().setFilePath(this.value)" >
+			</label>
+		</div>
+		<div class="modalrow">
+			<span>Re-serve on completion</span>
+			<div class="checkbox">
+				<input type="checkbox" id="newfilereserve">
+				<label for="newfilereserve"></label>
+			</div>
+		</div>
+		<div class="modalrow">
+			<button ng-click="addUpload('file')">Start</button>
+			<button ng-click="newFileVisible = false">Cancel</button>
+		</div>
+	</div>
+</div>
+
+<div class="modal" ng-show="newFolderVisible">
+	<div class="modalcontents">
+		<div class="modalrow">
+			<input type="text" placeholder="None" ng-model="newFolderPath" disabled>
+			<label class="fileselect">
+				Browse...
+				<input type="file" id="newfolder" ng-model="downloadpath" onchange="angular.element(this).scope().setFolderPath(this.value)" nwdirectory>
+			</label>
+		</div>
+		<div class="modalrow">
+			<span>Re-serve on completion</span>
+			<div class="checkbox">
+				<input type="checkbox" id="newfolderreserve">
+				<label for="newfolderreserve"></label>
+			</div>
+		</div>
+		<div class="modalrow">
+			<button ng-click="addUpload('folder')">Start</button>
+			<button ng-click="newFolderVisible = false">Cancel</button>
+		</div>
+	</div>
+</div>
