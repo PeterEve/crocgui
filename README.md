@@ -14,5 +14,6 @@ If you encounter errors, please send me the debug.log file found in install fold
 3. Download and install Node.js
 4. In the root of crocgui run
 	> npm install
+
 	> npm run build
 5. Extract crocgui.zip wherever you intend to use the program
