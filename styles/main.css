@@ -114,12 +114,18 @@ td>button {
 }
 
 .modalcontents {
-    width: fit-content;
-    margin-top: 20%;
-    margin-left: 25%;
+	width: fit-content;
+	height: fit-content;
     padding: 20px;
 	border: 4px var(--highlight) solid;
 	min-width: 35%;
+
+	position: absolute;
+	margin: auto;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
 }
 
 .modalrow {
@@ -136,6 +142,10 @@ td>button {
 .modalrow>span {
     display: inline-flex;
     align-items: center;
+}
+
+.modalfooter {
+	margin-top: 20px;
 }
 
 .textheader {
@@ -224,6 +234,11 @@ input[type='file'] {
 
 .changerow>span:nth-child(n+2) {
 	padding-left: 10px;
+}
+
+.changerow>span.subtext {
+	margin-left: 30px;
+	font-style: italic;
 }
 
 input[type='text'] {

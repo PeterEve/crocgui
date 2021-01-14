@@ -61,7 +61,7 @@ class Downloader extends EventEmitter {
 			}
 			if ('target' in parsedData) {
 				this.target = parsedData.target
-				this.status.state = "Transfering"
+				this.status.state = "Transferring"
 				statusChanged = true
 			}
 			if (statusChanged) {
